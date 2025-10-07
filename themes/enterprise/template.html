@@ -158,7 +158,7 @@
     </section>
 
     <!-- 轮播图 -->
-    {% if carousel %}
+    <!-- {% if carousel %}
     <section class="py-5">
       <div class="container">
         {% if carousel_title %}
@@ -184,6 +184,73 @@
             </div>
             {% endfor %}
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+    {% endif %} -->
+    <!-- 等比自适应轮播图 -->
+    {% if carousel %}
+    <section class="py-5">
+      <div class="container">
+        {% if carousel_title %}
+        <div class="text-center mb-4">
+          <h2 class="display-5 fw-bold">{{ carousel_title }}</h2>
+        </div>
+        {% endif %}
+
+        <style>
+          /* 统一图框高度（可改） */
+          #mainCarousel .carousel-item{
+            height: 400px;          /* 想要多高写多少 */
+          }
+          /* 图片等比自适应 */
+          #mainCarousel .carousel-item img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;    /* contain=完整显示，cover=铺满裁剪 */
+          }
+          /* 响应式：大屏再高一点 */
+          @media (min-width: 992px){
+            #mainCarousel .carousel-item{ height: 500px; }
+          }
+          /* 灰色箭头 */
+          .carousel-control-prev-icon,
+          .carousel-control-next-icon {
+            background-color: rgba(128, 128, 128, 0.8);
+            border-radius: 50%;
+          }
+          .carousel-control-prev,
+          .carousel-control-next {
+            filter: none !important;
+          }
+        </style>
+
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            {% for img in carousel %}
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="{{ loop.index0 }}"
+                    {% if loop.first %}class="active"{% endif %}></button>
+            {% endfor %}
+          </div>
+
+          <div class="carousel-inner">
+            {% for img in carousel %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+              <img src="{{ img }}" class="d-block" alt="Banner {{ loop.index }}">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>专业服务场景 {{ loop.index }}</h5>
+                <p>为您提供最优质的技术解决方案</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
           <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
           </button>
@@ -229,8 +296,71 @@
       </div>
     </section>
 
-    <!-- 服务内容 -->
+    <!-- 服务内容（无 icon，带图片） -->
     <section id="services" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">{{ services_title or '核心服务' }}</h2>
+            {% if services_subtitle %}
+            <p class="lead text-muted">{{ services_subtitle }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row g-4">
+          {% for service in services %}
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100">
+              <!-- 顶部图片 -->
+              <img src="{{ service.image }}" class="card-img-top" alt="{{ service.name }}" style="height:200px; object-fit:cover;">
+
+              <div class="card-body text-center">
+                <h5 class="card-title mt-2">{{ service.name }}</h5>
+                <p class="card-text text-muted">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务内容（带图片） -->
+    <!-- <section id="services" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">{{ services_title or '核心服务' }}</h2>
+            {% if services_subtitle %}
+            <p class="lead text-muted">{{ services_subtitle }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row g-4">
+          {% for service in services %}
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100"> -->
+              <!-- 新增图片 -->
+              <!-- <img src="{{ service.image }}" class="card-img-top" alt="{{ service.name }}" style="height:200px; object-fit:cover;">
+
+              <div class="card-body text-center">
+                <div class="mb-2">
+                  <i class="bi {{ service.icon }} text-primary" style="font-size: 2rem;"></i>
+                </div>
+                <h5 class="card-title">{{ service.name }}</h5>
+                <p class="card-text text-muted">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section> -->
+
+    <!-- 服务内容 -->
+    <!-- <section id="services" class="section-padding">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
@@ -256,7 +386,7 @@
           {% endfor %}
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- 联系我们 -->
     <section id="contact" class="section-padding bg-light-gray">
