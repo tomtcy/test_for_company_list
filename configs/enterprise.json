@@ -29,44 +29,32 @@
         "description": "严格的安全标准，保障产品生产质量"
       }
     ],
-    "services_title": "核心服务",
+    "services_title": "样品展示",
     "services_subtitle": "专业制造铜瓶钳、铜套、铜接头,提供定制化服务,欢迎致电洽谈",
     "services": [
       {
-        "name": "服务器运维",
+        "name": "铜瓶钳样例1",
         "icon": "bi-server",
-        "description": "7×24小时专业运维",
-        "image": "carousel-1.jpg"
+        "description": "实例样品1",
+        "image": "new_1.jpg"
       },
       {
-        "name": "系统监控", 
+        "name": "铜瓶钳样例2", 
         "icon": "bi-graph-up",
-        "description": "实时监控系统性能，提前预警潜在问题",
-        "image": "carousel-1.jpg"
+        "description": "实例样品2",
+        "image": "new_2.jpg"
       },
       {
-        "name": "安全加固",
+        "name": "铜瓶钳样例3",
         "icon": "bi-shield-lock-fill",
-        "description": "全方位安全防护，抵御各类网络威胁",
-        "image": "carousel-1.jpg"
+        "description": "实例样品3",
+        "image": "new_3.jpg"
       },
       {
-        "name": "ICP备案",
+        "name": "铜套样例",
         "icon": "bi-file-earmark-check-fill",
-        "description": "专业备案服务，快速通过审核",
-        "image": "carousel-1.jpg"
-      },
-      {
-        "name": "项目开发",
-        "icon": "bi-code-slash",
-        "description": "定制化软件开发，满足企业个性化需求",
-        "image": "carousel-1.jpg"
-      },
-      {
-        "name": "技术咨询",
-        "icon": "bi-chat-dots-fill",
-        "description": "专业技术咨询，助力企业数字化转型",
-        "image": "carousel-1.jpg"
+        "description": "铜套样品",
+        "image": "new_4.png"
       }
     ],
     "contact_title": "联系我们",
@@ -76,8 +64,7 @@
       "phone": "13588293116,15988281814",
       "email": "17719496507@163.com",
       "work_time": "周一至周六 8:00-21:00",
-      "icp": "浙ICP备20250000号",
-      "police": "浙公网安备110105000000号"
+      "icp": "浙ICP备2025204226号-1"
     },
     "footer": {
       "copyright": "© 2024 杭州吉全机械有限公司 保留所有权利。",
